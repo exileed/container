@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Argument;
 
@@ -14,7 +14,7 @@ interface ArgumentResolverInterface extends ContainerAwareInterface
      *
      * @return array
      */
-    public function resolveArguments(array $arguments) : array;
+    public function resolveArguments(array $arguments) ;
 
     /**
      * Resolves the correct arguments to be passed to a method.
@@ -24,5 +24,5 @@ interface ArgumentResolverInterface extends ContainerAwareInterface
      *
      * @return array
      */
-    public function reflectArguments(ReflectionFunctionAbstract $method, array $args = []) : array;
+    public function reflectArguments(ReflectionFunctionAbstract $method, array $args = []);
 }

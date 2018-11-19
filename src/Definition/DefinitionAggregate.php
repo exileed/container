@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Definition;
 
@@ -30,7 +30,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function add(string $id, $definition, bool $shared = false) : DefinitionInterface
+    public function add($id, $definition, $shared = false)
     {
         if (! $definition instanceof DefinitionInterface) {
             $definition = (new Definition($id, $definition));
@@ -47,7 +47,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function has(string $id) : bool
+    public function has(string $id)
     {
         foreach ($this->getIterator() as $definition) {
             if ($id === $definition->getAlias()) {
@@ -61,7 +61,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function hasTag(string $tag) : bool
+    public function hasTag(string $tag)
     {
         foreach ($this->getIterator() as $definition) {
             if ($definition->hasTag($tag)) {
@@ -75,7 +75,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function getDefinition(string $id) : DefinitionInterface
+    public function getDefinition($id)
     {
         foreach ($this->getIterator() as $definition) {
             if ($id === $definition->getAlias()) {
@@ -89,7 +89,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function resolve(string $id, bool $new = false)
+    public function resolve( $id,  $new = false)
     {
         return $this->getDefinition($id)->resolve($new);
     }
@@ -97,7 +97,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function resolveTagged(string $tag, bool $new = false) : array
+    public function resolveTagged($tag,  $new = false)
     {
         $arrayOf = [];
 
@@ -113,7 +113,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function getIterator() : Generator
+    public function getIterator()
     {
         $count = count($this->definitions);
 

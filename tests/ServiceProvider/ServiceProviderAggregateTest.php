@@ -1,20 +1,23 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test\ServiceProvider;
 
-use League\Container\{Container, ContainerAwareTrait};
+use League\Container\Container;
+use League\Container\ContainerAwareTrait;
 use League\Container\Exception\ContainerException;
-use League\Container\ServiceProvider\{AbstractServiceProvider, BootableServiceProviderInterface, ServiceProviderAggregate, ServiceProviderInterface};
-use PHPUnit\Framework\TestCase;
+use League\Container\ServiceProvider\AbstractServiceProvider;
+use League\Container\ServiceProvider\BootableServiceProviderInterface;
+use League\Container\ServiceProvider\ServiceProviderAggregate;
+use League\Container\ServiceProvider\ServiceProviderInterface;
 
-class ServiceProviderAggregateTest extends TestCase
+class ServiceProviderAggregateTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Return a service provider fake
      *
      * @return \League\Container\ServiceProvider\ServiceProviderInterface
      */
-    protected function getServiceProvider(): ServiceProviderInterface
+    protected function getServiceProvider()
     {
         return new class extends AbstractServiceProvider implements BootableServiceProviderInterface {
             use ContainerAwareTrait;

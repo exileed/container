@@ -1,14 +1,15 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test;
 
 use League\Container\Exception\NotFoundException;
 use League\Container\ReflectionContainer;
-use League\Container\Test\Asset\{Foo, FooCallable, Bar};
-use PHPUnit\Framework\TestCase;
+use League\Container\Test\Asset\Foo;
+use League\Container\Test\Asset\FooCallable;
+use League\Container\Test\Asset\Bar;
 use Psr\Container\ContainerInterface;
 
-class ReflectionContainerTest extends TestCase
+class ReflectionContainerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @param array $items

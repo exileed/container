@@ -1,14 +1,14 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test\Definition;
 
 use League\Container\Exception\NotFoundException;
-use League\Container\Definition\{DefinitionAggregate, DefinitionInterface};
+use League\Container\Definition\DefinitionAggregate
+use League\Container\Definition\DefinitionInterface;
 use League\Container\Test\Asset\Foo;
-use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class DefinitionAggregateTest extends TestCase
+class DefinitionAggregateTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that the aggregate can add a definition.

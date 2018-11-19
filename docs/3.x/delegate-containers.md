@@ -14,7 +14,7 @@ Delegate containers are a way to allow you to register one or multiple backup co
 A delegate must be a [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md) implementation and can be registered using the `delegate` method.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme\Container;
 
@@ -27,7 +27,7 @@ class DelegateContainer implements ContainerInterface
 ~~~
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 $delegate  = new Acme\Container\DelegateContainer;

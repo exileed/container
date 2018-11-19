@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Inflector;
 
@@ -37,7 +37,7 @@ class Inflector implements ArgumentResolverInterface, InflectorInterface
      * @param string        $type
      * @param callable|null $callback
      */
-    public function __construct(string $type, callable $callback = null)
+    public function __construct($type, callable $callback = null)
     {
         $this->type     = $type;
         $this->callback = $callback;
@@ -46,7 +46,7 @@ class Inflector implements ArgumentResolverInterface, InflectorInterface
     /**
      * {@inheritdoc}
      */
-    public function getType() : string
+    public function getType()
     {
         return $this->type;
     }
@@ -54,7 +54,7 @@ class Inflector implements ArgumentResolverInterface, InflectorInterface
     /**
      * {@inheritdoc}
      */
-    public function invokeMethod(string $name, array $args) : InflectorInterface
+    public function invokeMethod( $name, array $args)
     {
         $this->methods[$name] = $args;
 
@@ -64,7 +64,7 @@ class Inflector implements ArgumentResolverInterface, InflectorInterface
     /**
      * {@inheritdoc}
      */
-    public function invokeMethods(array $methods) : InflectorInterface
+    public function invokeMethods(array $methods)
     {
         foreach ($methods as $name => $args) {
             $this->invokeMethod($name, $args);
@@ -76,7 +76,7 @@ class Inflector implements ArgumentResolverInterface, InflectorInterface
     /**
      * {@inheritdoc}
      */
-    public function setProperty(string $property, $value) : InflectorInterface
+    public function setProperty( $property, $value)
     {
         $this->properties[$property] = $this->resolveArguments([$value])[0];
 
@@ -86,7 +86,7 @@ class Inflector implements ArgumentResolverInterface, InflectorInterface
     /**
      * {@inheritdoc}
      */
-    public function setProperties(array $properties) : InflectorInterface
+    public function setProperties(array $properties)
     {
         foreach ($properties as $property => $value) {
             $this->setProperty($property, $value);

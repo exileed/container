@@ -1,10 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Definition;
 
-use League\Container\Argument\{
-    ArgumentResolverInterface, ArgumentResolverTrait, ClassNameInterface, RawArgumentInterface
-};
+use  League\Container\Argument\ArgumentResolverInterface;
+use  League\Container\Argument\ArgumentResolverTrait;
+use  League\Container\Argument\ClassNameInterface;
+use  League\Container\Argument\RawArgumentInterface;
 use League\Container\ContainerAwareTrait;
 use ReflectionClass;
 
@@ -54,9 +55,9 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
      * @param string $id
      * @param mixed  $concrete
      */
-    public function __construct(string $id, $concrete = null)
+    public function __construct( $id, $concrete = null)
     {
-        $concrete = $concrete ?? $id;
+        $concrete = $concrete ?: $id;
 
         $this->alias    = $id;
         $this->concrete = $concrete;
@@ -65,7 +66,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addTag(string $tag) : DefinitionInterface
+    public function addTag( $tag)
     {
         $this->tags[] = $tag;
 
@@ -75,7 +76,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function hasTag(string $tag) : bool
+    public function hasTag($tag)
     {
         return in_array($tag, $this->tags);
     }
@@ -83,7 +84,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function setAlias(string $id) : DefinitionInterface
+    public function setAlias( $id)
     {
         $this->alias = $id;
 
@@ -93,7 +94,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function getAlias() : string
+    public function getAlias()
     {
         return $this->alias;
     }
@@ -101,7 +102,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function setShared(bool $shared = true) : DefinitionInterface
+    public function setShared($shared = true)
     {
         $this->shared = $shared;
 
@@ -111,7 +112,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function isShared() : bool
+    public function isShared()
     {
         return $this->shared;
     }
@@ -127,7 +128,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function setConcrete($concrete) : DefinitionInterface
+    public function setConcrete($concrete)
     {
         $this->concrete = $concrete;
 
@@ -137,7 +138,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addArgument($arg) : DefinitionInterface
+    public function addArgument($arg)
     {
         $this->arguments[] = $arg;
 
@@ -147,7 +148,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addArguments(array $args) : DefinitionInterface
+    public function addArguments(array $args)
     {
         foreach ($args as $arg) {
             $this->addArgument($arg);
@@ -159,7 +160,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addMethodCall(string $method, array $args = []) : DefinitionInterface
+    public function addMethodCall($method, array $args = [])
     {
         $this->methods[] = [
             'method'    => $method,
@@ -172,7 +173,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addMethodCalls(array $methods = []) : DefinitionInterface
+    public function addMethodCalls(array $methods = [])
     {
         foreach ($methods as $method => $args) {
             $this->addMethodCall($method, $args);
@@ -184,7 +185,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function resolve(bool $new = false)
+    public function resolve($new = false)
     {
         $concrete = $this->concrete;
 
@@ -240,10 +241,10 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
      *
      * @return object
      */
-    protected function resolveClass(string $concrete)
+    protected function resolveClass($concrete)
     {
         $resolved   = $this->resolveArguments($this->arguments);
-        $reflection = new ReflectionClass($concrete);
+        $reflection = new \ReflectionClass($concrete);
 
         return $reflection->newInstanceArgs($resolved);
     }

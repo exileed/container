@@ -15,7 +15,7 @@ Service providers give the benefit of organising your container definitions alon
 To build a service provider it is as simple as extending the base service provider and defining what you would like to register.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme\ServiceProvider;
 
@@ -64,7 +64,7 @@ class SomeServiceProvider extends AbstractServiceProvider
 To register this service provider with the container simply pass an instance of your provider or a fully qualified class name to the `League\Container\Container::addServiceProvider` method.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 

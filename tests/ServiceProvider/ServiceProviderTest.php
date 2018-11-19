@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test\ServiceProvider;
 
@@ -12,7 +12,7 @@ class ServiceProviderTest extends TestCase
      *
      * @return \League\Container\ServiceProvider\ServiceProviderInterface
      */
-    protected function getServiceProvider(): ServiceProviderInterface
+    protected function getServiceProvider()
     {
         return new class extends AbstractServiceProvider implements BootableServiceProviderInterface {
             protected $provides = [

@@ -1,14 +1,16 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test\Definition;
 
-use League\Container\Argument\{ClassName, RawArgument};
+use League\Container\Argument\ClassName;
+use League\Container\Argument\RawArgument;
 use League\Container\Definition\Definition;
-use League\Container\Test\Asset\{Foo, FooCallable, Bar};
-use PHPUnit\Framework\TestCase;
+use League\Container\Test\Asset\Foo;
+use League\Container\Test\Asset\FooCallable;
+use League\Container\Test\Asset\Bar;
 use Psr\Container\ContainerInterface;
 
-class DefinitionTest extends TestCase
+class DefinitionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that the definition can resolve a closure with defined args.

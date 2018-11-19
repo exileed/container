@@ -1,15 +1,16 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test;
 
 use League\Container\Definition\DefinitionInterface;
 use League\Container\Exception\NotFoundException;
 use League\Container\ServiceProvider\AbstractServiceProvider;
-use League\Container\Test\Asset\{Foo, Bar};
-use League\Container\{Container, ReflectionContainer};
-use PHPUnit\Framework\TestCase;
+use League\Container\Test\Asset\Foo;
+use League\Container\Test\Asset\Bar;
+use League\Container\Container;
+use League\Container\ReflectionContainer;
 
-class ContainerTest extends TestCase
+class ContainerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that the container can add and get a service.

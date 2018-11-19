@@ -1,5 +1,7 @@
 # Container (Dependency Injection)
 
+## Fork support php 5.6
+
 [![Author](http://img.shields.io/badge/author-@philipobenito-blue.svg?style=flat-square)](https://twitter.com/philipobenito)
 [![Latest Version](https://img.shields.io/github/release/thephpleague/container.svg?style=flat-square)](https://github.com/thephpleague/container/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -27,6 +29,7 @@ $ composer require league/container
 
 The following versions of PHP are supported by this version.
 
+* PHP 5.6
 * PHP 7.0
 * PHP 7.1
 * PHP 7.2

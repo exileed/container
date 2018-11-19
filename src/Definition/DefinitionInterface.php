@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Definition;
 
@@ -13,7 +13,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addTag(string $tag) : DefinitionInterface;
+    public function addTag($tag) ;
 
     /**
      * Does the definition have a tag?
@@ -22,21 +22,21 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return boolean
      */
-    public function hasTag(string $tag) : bool;
+    public function hasTag($tag);
 
     /**
      * Set the alias of the definition.
      *
      * @param string $id
      */
-    public function setAlias(string $id) : DefinitionInterface;
+    public function setAlias($id);
 
     /**
      * Get the alias of the definition.
      *
      * @return string
      */
-    public function getAlias() : string;
+    public function getAlias();
 
     /**
      * Set whether this is a shared definition.
@@ -45,14 +45,14 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function setShared(bool $shared) : DefinitionInterface;
+    public function setShared($shared);
 
     /**
      * Is this a shared definition?
      *
      * @return boolean
      */
-    public function isShared() : bool;
+    public function isShared();
 
     /**
      * Get the concrete of the definition.
@@ -68,7 +68,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return DefinitionInterface
      */
-    public function setConcrete($concrete) : DefinitionInterface;
+    public function setConcrete($concrete);
 
     /**
      * Add an argument to be injected.
@@ -77,7 +77,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addArgument($arg) : DefinitionInterface;
+    public function addArgument($arg);
 
     /**
      * Add multiple arguments to be injected.
@@ -86,7 +86,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addArguments(array $args) : DefinitionInterface;
+    public function addArguments(array $args);
 
     /**
      * Add a method to be invoked
@@ -96,7 +96,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addMethodCall(string $method, array $args = []) : DefinitionInterface;
+    public function addMethodCall($method, array $args = []);
 
     /**
      * Add multiple methods to be invoked
@@ -105,7 +105,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addMethodCalls(array $methods = []) : DefinitionInterface;
+    public function addMethodCalls(array $methods = []);
 
     /**
      * Handle instantiation and manipulation of value and return.
@@ -114,5 +114,5 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return mixed
      */
-    public function resolve(bool $new = false);
+    public function resolve($new = false);
 }

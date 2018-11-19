@@ -1,12 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test\Inflector;
 
 use League\Container\Inflector\Inflector;
-use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class InflectorTest extends TestCase
+class InflectorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that the inflector sets expected method calls.

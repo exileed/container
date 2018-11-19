@@ -16,7 +16,7 @@ Container has the power to automatically resolve your objects and all of their d
 Consider the code below.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme;
 
@@ -77,7 +77,7 @@ class Bam
 `Acme\Foo` has 2 dependencies `Acme\Bar` and `Acme\Baz`, `Acme\Bar` has a further dependency of `Acme\Bam`. Normally you would have to do the following to return a fully configured instance of `Acme\Foo`.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $bam = new Acme\Bam;
 $baz = new Acme\Baz;
@@ -88,7 +88,7 @@ $foo = new Acme\Foo($bar, $baz);
 With nested dependencies, this can become quite cumbersome and hard to keep track of. With the container, to return a fully configured instance of `Acme\Foo` it is as simple as requesting `Acme\Foo` from the container.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -110,7 +110,7 @@ var_dump($foo->bar->bam instanceof Acme\Bam); // true
 If you would like the reflection container to cache resolutions and pull from that cache if available, you can enable it to do so as below.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 

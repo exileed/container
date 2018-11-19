@@ -1,13 +1,13 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test\Inflector;
 
 use League\Container\ContaineAwareInterface;
-use League\Container\Inflector\{InflectorAggregate, Inflector};
-use PHPUnit\Framework\TestCase;
+use League\Container\Inflector\Inflector;
+use League\Container\Inflector\InflectorAggregate;
 use Psr\Container\ContainerInterface;
 
-class InflectorAggregateTest extends TestCase
+class InflectorAggregateTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that the aggregate can add an inflector.

@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-
+<?php
 namespace League\Container;
 
 use League\Container\Exception\ContainerException;
@@ -19,7 +18,7 @@ trait ContainerAwareTrait
      *
      * @return self
      */
-    public function setContainer(ContainerInterface $container) : ContainerAwareInterface
+    public function setContainer(ContainerInterface $container)
     {
         $this->container = $container;
 
@@ -31,7 +30,7 @@ trait ContainerAwareTrait
      *
      * @return \Psr\Container\ContainerInterface
      */
-    public function getContainer() : ContainerInterface
+    public function getContainer()
     {
         if ($this->container instanceof ContainerInterface) {
             return $this->container;

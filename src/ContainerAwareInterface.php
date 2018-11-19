@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container;
 
@@ -13,12 +13,12 @@ interface ContainerAwareInterface
      *
      * @return self
      */
-    public function setContainer(ContainerInterface $container) : self;
+    public function setContainer(ContainerInterface $container);
 
     /**
      * Get the container
      *
      * @return \Psr\Container\ContainerInterface
      */
-    public function getContainer() : ContainerInterface;
+    public function getContainer();
 }

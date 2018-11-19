@@ -1,8 +1,9 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container;
 
-use League\Container\Argument\{ArgumentResolverInterface, ArgumentResolverTrait};
+use League\Container\Argument\ArgumentResolverInterface;
+use League\Container\Argument\ArgumentResolverTrait;
 use League\Container\Exception\NotFoundException;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
@@ -59,7 +60,7 @@ class ReflectionContainer implements ArgumentResolverInterface, ContainerInterfa
     /**
      * {@inheritdoc}
      */
-    public function has($id) : bool
+    public function has($id)
     {
         return class_exists($id);
     }
@@ -111,7 +112,7 @@ class ReflectionContainer implements ArgumentResolverInterface, ContainerInterfa
      *
      * @return self
      */
-    public function cacheResolutions(bool $option = true) : ContainerInterface
+    public function cacheResolutions($option = true)
     {
         $this->cacheResolutions = $option;
 

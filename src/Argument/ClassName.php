@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Argument;
 
@@ -14,7 +14,7 @@ class ClassName implements ClassNameInterface
      *
      * @param string $value
      */
-    public function __construct(string $value)
+    public function __construct($value)
     {
         $this->value = $value;
     }
@@ -22,7 +22,7 @@ class ClassName implements ClassNameInterface
     /**
      * {@inheritdoc}
      */
-    public function getValue() : string
+    public function getValue()
     {
         return $this->value;
     }

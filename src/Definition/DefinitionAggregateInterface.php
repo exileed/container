@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Definition;
 
@@ -16,7 +16,7 @@ interface DefinitionAggregateInterface extends ContainerAwareInterface, Iterator
      *
      * @return \League\Container\Definition\DefinitionInterface
      */
-    public function add(string $id, $definition, bool $shared = false) : DefinitionInterface;
+    public function add( $id, $definition,  $shared = false) ;
 
     /**
      * Checks whether alias exists as definition.
@@ -25,7 +25,7 @@ interface DefinitionAggregateInterface extends ContainerAwareInterface, Iterator
      *
      * @return boolean
      */
-    public function has(string $id) : bool;
+    public function has( $id);
 
     /**
      * Checks whether tag exists as definition.
@@ -34,7 +34,7 @@ interface DefinitionAggregateInterface extends ContainerAwareInterface, Iterator
      *
      * @return boolean
      */
-    public function hasTag(string $tag) : bool;
+    public function hasTag( $tag);
 
     /**
      * Get the definition to be extended.
@@ -43,7 +43,7 @@ interface DefinitionAggregateInterface extends ContainerAwareInterface, Iterator
      *
      * @return \League\Container\Definition\DefinitionInterface
      */
-    public function getDefinition(string $id) : DefinitionInterface;
+    public function getDefinition($id);
 
     /**
      * Resolve and build a concrete value from an id/alias.
@@ -53,7 +53,7 @@ interface DefinitionAggregateInterface extends ContainerAwareInterface, Iterator
      *
      * @return mixed
      */
-    public function resolve(string $id, bool $new = false);
+    public function resolve($id, $new = false);
 
     /**
      * Resolve and build an array of concrete values from a tag.
@@ -63,5 +63,5 @@ interface DefinitionAggregateInterface extends ContainerAwareInterface, Iterator
      *
      * @return mixed
      */
-    public function resolveTagged(string $tag, bool $new = false);
+    public function resolveTagged($tag, $new = false);
 }

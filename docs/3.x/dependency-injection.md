@@ -15,7 +15,7 @@ Passing dependencies to a class constructor is the simplest way of achieving dep
 As a basic example, consider we have a controller class that depends on a model, and that model depends on PDO for database connections.
 
 ~~~php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme;
 
@@ -59,7 +59,7 @@ class Model
 This dependency tree can be defined in Container, then whenever we retrieves `Acme\Controller`, Container will recursively build all dependencies and inject them as required.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -86,7 +86,7 @@ var_dump($controller->model->pdo instanceof PDO);   // true
 Dependency injection can also be achieved by invoking and passing dependencies to setter methods. We can refactor the example above so that the model receives PDO via a setter instead of a constructor argument.
 
 ~~~php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme;
 
@@ -130,7 +130,7 @@ class Model
 Now we need to make a slight change to our definition in Container to ensure that the method is correctly invoked on instantiation.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -166,7 +166,7 @@ Container can accept any `callable` that will be used as a factory to resolve yo
 Using the same example as above, we can define it in Container as follows.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 

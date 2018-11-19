@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Argument;
 
@@ -9,5 +9,5 @@ interface ClassNameInterface
      *
      * @return string
      */
-    public function getValue() : string;
+    public function getValue();
 }

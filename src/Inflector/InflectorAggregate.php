@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Inflector;
 
@@ -17,7 +17,7 @@ class InflectorAggregate implements InflectorAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function add(string $type, callable $callback = null) : Inflector
+    public function add($type, callable $callback = null)
     {
         $inflector          = new Inflector($type, $callback);
         $this->inflectors[] = $inflector;
@@ -28,7 +28,7 @@ class InflectorAggregate implements InflectorAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function getIterator() : Generator
+    public function getIterator()
     {
         $count = count($this->inflectors);
 

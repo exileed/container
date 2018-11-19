@@ -1,11 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Test;
 
 use League\Container\Argument\RawArgument;
-use PHPUnit\Framework\TestCase;
 
-class RawArgumentTest extends TestCase
+class RawArgumentTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that a raw argument object can set and get a value.

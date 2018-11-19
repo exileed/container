@@ -16,7 +16,7 @@ Definitions are how Container describes your dependency map internally. Each def
 Generally, Container will handle everything that is required to build a definition for you. When you invoke `add`, a `Definition` is built and returned meaning any further interaction is actually with the `Definition`, not `Container`.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container  = new League\Container\Container;
 $definition = $container->add(Acme\Foo::class);
@@ -27,7 +27,7 @@ var_dump($definition instanceof League\Container\Definition\Definition); // true
 You can also extend a definition if needed.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -47,7 +47,7 @@ var_dump($foo->bar instanceof Acme\Bar); // true
 Creating definitions manually and passing them to the container is also possible.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -68,7 +68,7 @@ var_dump($foo->bar instanceof Acme\Bar); // true
 Container uses an aggregate to store all definitions. This means that you can build your aggregate first and pass it off to the container.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $definitions = [
     (new Definition(Acme\Foo::class))->addArgument(Acme\Bar::class),
@@ -95,7 +95,7 @@ Definitions provide several methods to define what behaviour is desired on resol
 Adding an argument to a definition will pass that argument to the constructor of the defined class on instantiation, invoking this multiple times will pass more arguments, in the order they were added.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -109,7 +109,7 @@ $container
 We also have a proxy method to pass multiple arguments in one call.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -124,7 +124,7 @@ $container->add(Acme\Foo::class)->addArguments([
 We can define one or multiple method calls and the arguments to be passed to them, these arguments will be resolved via the container. (The same method call can be added multiple times for multiple invokations with the same or different arguments).
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -138,7 +138,7 @@ $container
 We also have a convenience method here to add multiple method calls to the definition at once.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -156,7 +156,7 @@ $container
 We can tell a definition to only resolve once and return the same instance every time it is resolved.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -169,7 +169,7 @@ $container
 If we have a definition marked as shared and we want to force the retrieval of a new instance, we can pass a second argument to Container on `get`.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -186,7 +186,7 @@ $container->get(Acme\Foo::class, $new = true);
 We can tag definitions and retrieving the alias given to the tag will resolve all definitions using that tag in an indexed array. You can add multiple tags to each definition.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 

@@ -30,7 +30,7 @@ sections:
 Container is dependency injection container. It allows you to implement the [dependency injection design pattern](https://en.wikipedia.org/wiki/Dependency_injection) meaning that you can decouple your class dependencies and have the container inject them where they are needed.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme;
 
@@ -58,7 +58,7 @@ The class above `Acme\Foo` has a dependency on `Acme\Bar`, as it is written, thi
 By refactoring the code above to have the class accept it's dependency as a constructor argument, we can loosen that dependency.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme;
 
@@ -149,7 +149,7 @@ Container allows you to register services, with or without their dependencies fo
 Using the example in our [introduction](#introduction), we can start to take a look at how Container works. Now that `Acme\Foo` accepts `Acme\Bar` as a contructor argument, we can use Container to configure that.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -171,7 +171,7 @@ When we ask Container to `get(Acme\Foo::class)`, it knows to first get `Acme\Bar
 We can make a slight adjustment to the code above so that we can use aliases to point to an actual class.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
@@ -187,7 +187,7 @@ var_dump($foo->bar instanceof Acme\Bar); // true
 This is useful especially when depending on interfaces rather than concretions. We can refactor our original example to have it depend on an interface instead, and configure Container to inject the concrete implementation.
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 namespace Acme;
 
@@ -217,7 +217,7 @@ class BarB implements BarInterface {}
 We now have `Acme\Foo` depending on an implementation of `Acme\BarInterface` (`Acme\BarA` or `Acme\BarB`).
 
 ~~~ php
-<?php declare(strict_types=1);
+<?php ;
 
 $container = new League\Container\Container;
 
