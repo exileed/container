@@ -1,9 +1,9 @@
-<?php ;
+<?php
 
 namespace League\Container\ServiceProvider;
 
-use Generator;
-use League\Container\{ContainerAwareInterface, ContainerAwareTrait};
+use League\Container\ContainerAwareInterface;
+use League\Container\ContainerAwareTrait;
 use League\Container\Exception\ContainerException;
 
 class ServiceProviderAggregate implements ServiceProviderAggregateInterface
@@ -23,7 +23,7 @@ class ServiceProviderAggregate implements ServiceProviderAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function add($provider) : ServiceProviderAggregateInterface
+    public function add($provider)
     {
         if (is_string($provider) && $this->getContainer()->has($provider)) {
             $provider = $this->getContainer()->get($provider);
@@ -54,7 +54,7 @@ class ServiceProviderAggregate implements ServiceProviderAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function provides(string $service) : bool
+    public function provides($service)
     {
         foreach ($this->getIterator() as $provider) {
             if ($provider->provides($service)) {
@@ -68,21 +68,21 @@ class ServiceProviderAggregate implements ServiceProviderAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function getIterator() : Generator
+    public function getIterator()
     {
         $count = count($this->providers);
 
         for ($i = 0; $i < $count; $i++) {
-            yield $this->providers[$i];
+            yield $this->providers[ $i ];
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function register(string $service)
+    public function register($service)
     {
-        if (! $this->provides($service)) {
+        if ( ! $this->provides($service)) {
             throw new ContainerException(
                 sprintf('(%s) is not provided by a service provider', $service)
             );

@@ -1,4 +1,4 @@
-<?php ;
+<?php
 
 namespace League\Container\ServiceProvider;
 

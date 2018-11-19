@@ -1,4 +1,4 @@
-<?php ;
+<?php
 
 namespace League\Container\ServiceProvider;
 
@@ -14,7 +14,7 @@ interface ServiceProviderAggregateInterface extends ContainerAwareInterface, Ite
      *
      * @return self
      */
-    public function add($provider) : ServiceProviderAggregateInterface;
+    public function add($provider);
 
     /**
      * Determines whether a service is provided by the aggregate.
@@ -23,7 +23,7 @@ interface ServiceProviderAggregateInterface extends ContainerAwareInterface, Ite
      *
      * @return boolean
      */
-    public function provides(string $service) : bool;
+    public function provides($service);
 
     /**
      * Invokes the register method of a provider that provides a specific service.
@@ -32,5 +32,5 @@ interface ServiceProviderAggregateInterface extends ContainerAwareInterface, Ite
      *
      * @return void
      */
-    public function register(string $service);
+    public function register($service);
 }
