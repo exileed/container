@@ -3,11 +3,9 @@
 namespace League\Container;
 
 use League\Container\Definition\DefinitionAggregate;
-use League\Container\Definition\DefinitionInterface;
 use League\Container\Definition\DefinitionAggregateInterface;
 use League\Container\Exception\NotFoundException;
 use League\Container\Inflector\InflectorAggregate;
-use League\Container\Inflector\InflectorInterface;
 use League\Container\Inflector\InflectorAggregateInterface;
 use League\Container\ServiceProvider\ServiceProviderAggregate;
 use League\Container\ServiceProvider\ServiceProviderAggregateInterface;

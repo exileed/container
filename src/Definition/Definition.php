@@ -55,7 +55,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
      * @param string $id
      * @param mixed  $concrete
      */
-    public function __construct( $id, $concrete = null)
+    public function __construct($id, $concrete = null)
     {
         $concrete = $concrete ?: $id;
 
@@ -66,7 +66,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addTag( $tag)
+    public function addTag($tag)
     {
         $this->tags[] = $tag;
 
@@ -84,7 +84,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function setAlias( $id)
+    public function setAlias($id)
     {
         $this->alias = $id;
 
@@ -164,7 +164,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     {
         $this->methods[] = [
             'method'    => $method,
-            'arguments' => $args
+            'arguments' => $args,
         ];
 
         return $this;
@@ -259,8 +259,8 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     protected function invokeMethods($instance)
     {
         foreach ($this->methods as $method) {
-            $args = $this->resolveArguments($method['arguments']);
-            call_user_func_array([$instance, $method['method']], $args);
+            $args = $this->resolveArguments($method[ 'arguments' ]);
+            call_user_func_array([$instance, $method[ 'method' ]], $args);
         }
 
         return $instance;

@@ -32,14 +32,13 @@ class DefinitionAggregate implements DefinitionAggregateInterface
      */
     public function add($id, $definition, $shared = false)
     {
-        if (! $definition instanceof DefinitionInterface) {
+        if ( ! $definition instanceof DefinitionInterface) {
             $definition = (new Definition($id, $definition));
         }
 
         $this->definitions[] = $definition
             ->setAlias($id)
-            ->setShared($shared)
-        ;
+            ->setShared($shared);
 
         return $definition;
     }
@@ -47,7 +46,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function has(string $id)
+    public function has($id)
     {
         foreach ($this->getIterator() as $definition) {
             if ($id === $definition->getAlias()) {
@@ -61,7 +60,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function hasTag(string $tag)
+    public function hasTag($tag)
     {
         foreach ($this->getIterator() as $definition) {
             if ($definition->hasTag($tag)) {
@@ -89,7 +88,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function resolve( $id,  $new = false)
+    public function resolve($id, $new = false)
     {
         return $this->getDefinition($id)->resolve($new);
     }
@@ -97,7 +96,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function resolveTagged($tag,  $new = false)
+    public function resolveTagged($tag, $new = false)
     {
         $arrayOf = [];
 
@@ -118,7 +117,7 @@ class DefinitionAggregate implements DefinitionAggregateInterface
         $count = count($this->definitions);
 
         for ($i = 0; $i < $count; $i++) {
-            yield $this->definitions[$i];
+            yield $this->definitions[ $i ];
         }
     }
 }
